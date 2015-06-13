@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditor" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,95 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXW-89-XDL">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="s8l-co-aag"/>
+                                    <barButtonItem systemItem="camera" id="z6B-8f-FGx">
+                                        <connections>
+                                            <action selector="openCamera:" destination="BYZ-38-t0r" id="lzu-s4-sK7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PU3-q2-Mxb"/>
+                                    <barButtonItem title="Album" id="4W3-jX-Ec6">
+                                        <connections>
+                                            <action selector="openAlbum:" destination="BYZ-38-t0r" id="Cjg-yp-h36"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="JNc-Le-UJ6"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R56-3d-xU6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="3Cf-GL-Hva">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="NUC-uU-vS6">
+                                            <connections>
+                                                <action selector="share:" destination="BYZ-38-t0r" id="Jsu-NY-pRL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="UPt-dh-bV0"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-Kg-NII">
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qr1-r8-hFC">
+                                <rect key="frame" x="16" y="44" width="568" height="80"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="lAs-Z7-Dtu"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9D-ov-lCW">
+                                <rect key="frame" x="16" y="476" width="568" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="cu3-Z1-Oo0"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TXW-89-XDL" firstAttribute="top" secondItem="fJb-Kg-NII" secondAttribute="bottom" id="24M-0U-EWN"/>
+                            <constraint firstItem="TXW-89-XDL" firstAttribute="top" secondItem="E9D-ov-lCW" secondAttribute="bottom" id="4mb-0o-PPh"/>
+                            <constraint firstItem="Qr1-r8-hFC" firstAttribute="trailing" secondItem="E9D-ov-lCW" secondAttribute="trailing" id="50Z-j3-kCY"/>
+                            <constraint firstItem="TXW-89-XDL" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="5Mk-UH-aB9"/>
+                            <constraint firstItem="R56-3d-xU6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ajs-Wu-BHe"/>
+                            <constraint firstItem="E9D-ov-lCW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fe4-Vx-ybT"/>
+                            <constraint firstItem="fJb-Kg-NII" firstAttribute="trailing" secondItem="R56-3d-xU6" secondAttribute="trailing" id="Gke-lg-U9c"/>
+                            <constraint firstItem="Qr1-r8-hFC" firstAttribute="top" secondItem="R56-3d-xU6" secondAttribute="bottom" id="KfX-41-rbK"/>
+                            <constraint firstItem="Qr1-r8-hFC" firstAttribute="centerX" secondItem="R56-3d-xU6" secondAttribute="centerX" id="Pz2-mR-uYa"/>
+                            <constraint firstItem="Qr1-r8-hFC" firstAttribute="top" secondItem="fJb-Kg-NII" secondAttribute="top" id="i1O-Az-PGL"/>
+                            <constraint firstItem="fJb-Kg-NII" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iRh-yG-H5e"/>
+                            <constraint firstItem="TXW-89-XDL" firstAttribute="leading" secondItem="fJb-Kg-NII" secondAttribute="leading" id="it6-LE-rAR"/>
+                            <constraint firstAttribute="trailing" secondItem="TXW-89-XDL" secondAttribute="trailing" id="mjy-Pa-TDm"/>
+                            <constraint firstItem="R56-3d-xU6" firstAttribute="leading" secondItem="fJb-Kg-NII" secondAttribute="leading" id="qLF-9A-bsQ"/>
+                            <constraint firstItem="TXW-89-XDL" firstAttribute="trailing" secondItem="fJb-Kg-NII" secondAttribute="trailing" id="tG1-1W-ABQ"/>
+                            <constraint firstItem="E9D-ov-lCW" firstAttribute="leading" secondItem="Qr1-r8-hFC" secondAttribute="leading" id="x0i-fC-f9f"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bottom" destination="E9D-ov-lCW" id="scP-Fv-V5D"/>
+                        <outlet property="camera" destination="z6B-8f-FGx" id="gJ8-3Q-ZR7"/>
+                        <outlet property="memeImage" destination="fJb-Kg-NII" id="mr9-wn-syd"/>
+                        <outlet property="navbar" destination="TXW-89-XDL" id="h2Q-hU-xV1"/>
+                        <outlet property="share" destination="NUC-uU-vS6" id="cWk-Hx-aHV"/>
+                        <outlet property="toolbar" destination="R56-3d-xU6" id="LKk-5e-5XF"/>
+                        <outlet property="top" destination="Qr1-r8-hFC" id="ncs-qa-PvB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1174" y="-157"/>
         </scene>
     </scenes>
 </document>
