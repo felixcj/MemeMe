@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class Meme {
-    var textTop: String = ""
-    var textBottom: String = ""
+/* The meme model */
+struct Meme {
+    var textTop: String?
+    var textBottom: String?
     var image: UIImage?
     var memedImage: UIImage?
     
