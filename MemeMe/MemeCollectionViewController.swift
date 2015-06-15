@@ -47,7 +47,7 @@ final class MemeCollectionViewController: UIViewController {
         memeDetailVC.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         memeDetailVC.memeIndex = indexPath.row
         
-        self.navigationController!.pushViewController(memeDetailVC, animated: true)
+        navigationController!.pushViewController(memeDetailVC, animated: true)
     }
     
 

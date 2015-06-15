@@ -273,7 +273,6 @@
         <!--Sent Memes-->
         <scene sceneID="3da-Vm-XDR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-Qi-bze" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MemeTableViewController" id="4Bv-vt-VQi" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xzv-me-SgK"/>
@@ -287,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="tWF-FI-PFL" style="IBUITableViewCellStyleDefault" id="2if-Q6-U2l">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="tWF-FI-PFL" rowHeight="100" style="IBUITableViewCellStyleDefault" id="2if-Q6-U2l">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2if-Q6-U2l" id="ff4-L9-YaM">
@@ -338,6 +337,7 @@
                         <outlet property="tableView" destination="xwc-is-RgB" id="Ghd-vQ-3pD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-Qi-bze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346.5" y="-1005"/>
         </scene>
@@ -429,6 +429,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B2P-gT-z66"/>
+        <segue reference="XH1-zH-gqd"/>
     </inferredMetricsTieBreakers>
 </document>

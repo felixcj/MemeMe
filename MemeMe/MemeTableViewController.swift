@@ -35,9 +35,8 @@ final class MemeTableViewController: UIViewController {
         let meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         
         // Set the name and image
-        cell.textLabel?.text = "\(meme.textTop!)-\(meme.textBottom!)"
-        cell.imageView?.image = meme.memedImage!
-
+        cell.textLabel?.text = "\(meme.textTop)-\(meme.textBottom)"
+        cell.imageView?.image = meme.memedImage
         return cell
     }
     

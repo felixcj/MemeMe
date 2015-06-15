@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    internal var memes = [Meme]()
+    var memes = [Meme]()
 
 
 

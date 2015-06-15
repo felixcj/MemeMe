@@ -19,32 +19,32 @@ final class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
         var editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editMeme");
         var deleteButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "deleteMeme");
-        self.navigationItem.rightBarButtonItems = [deleteButton, editButton];
+        navigationItem.rightBarButtonItems = [deleteButton, editButton];
     }
     
     override internal func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController?.tabBar.hidden = true
+        tabBarController?.tabBar.hidden = true
         imageView!.image = meme!.memedImage
     }
 
     // Present the meme editor with the actual meme as template
-    func editMeme() {
+    internal func editMeme() {
         var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditor
         memeEditorVC.meme = meme
-        self.presentViewController(memeEditorVC, animated: true, completion: nil)
+        presentViewController(memeEditorVC, animated: true, completion: nil)
     }
     
     // Delete the actual meme and pop the view controller
-    func deleteMeme() {
+    internal func deleteMeme() {
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(memeIndex!)
-        self.navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     override internal func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
     }
 }

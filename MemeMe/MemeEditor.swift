@@ -81,14 +81,14 @@ final class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINav
     // Shift the view in response to the UIKeyboardWillShowNotification
     internal func keyboardWillShow(notification: NSNotification) {
         if textBottom.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     // Shift the view in response to the UIKeyboardWillHideNotification:
     internal func keyboardWillHide(notification: NSNotification) {
         if textBottom.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0
         }
     }
     
@@ -174,11 +174,12 @@ final class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINav
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
         activityVC.completionWithItemsHandler = { (activity, success, items, error) in
-           
+            
                 let TabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
                 self.presentViewController(TabBarController, animated: true, completion: nil)
         }
-        self.presentViewController(activityVC, animated: true, completion: {self.save(memedImage)})
+        
+        presentViewController(activityVC, animated: true, completion: {self.save(memedImage)})
     }
 
     // Unsubscribe from notifications
